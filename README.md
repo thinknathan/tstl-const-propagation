@@ -20,7 +20,7 @@ const result = FOO + 40;
 Becomes:
 
 ```lua
-bar(60);
+bar(60)
 local result = 60 + 40
 ```
 
