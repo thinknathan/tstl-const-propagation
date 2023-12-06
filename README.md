@@ -26,6 +26,8 @@ local result = 60 + 40
 
 ## Installation
 
+Requires TSTL >= 1.22.0
+
 1. Install this plugin
 
 ```bash
