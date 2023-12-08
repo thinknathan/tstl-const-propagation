@@ -21,7 +21,7 @@ function constProp(file: tstl.EmitFile) {
 			// Replace local declaration with an empty line
 			file.code = file.code.replace(statement, '');
 			// Replace label with value
-			const findLabel = new RegExp(`(${label})`, 'g');
+			const findLabel = new RegExp(`(${label})(?!\\w)`, 'g');
 			file.code = file.code.replace(findLabel, value);
 		}
 	}
