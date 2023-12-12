@@ -19,5 +19,8 @@
 		"tsc": "^2.0.4",
 		"typescript": "~5.2.2",
 		"typescript-to-lua": "~1.22.0"
+	},
+	"peerDependencies": {
+		"typescript-to-lua": ">=1.22.0"
 	}
 }
