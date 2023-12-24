@@ -23,7 +23,7 @@ Becomes:
 
 ```lua
 bar(60)
-local result = 60 + 40
+local result = 100
 ```
 
 ## Installation
