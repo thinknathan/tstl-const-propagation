@@ -2,14 +2,18 @@
 
 TypeScriptToLua plugin that performs [constant propagation](https://en.wikipedia.org/wiki/Constant_folding#Constant_propagation).
 
-- Only applies to local variables that are declared in a single statement on their own line
+As of v2.0.0, [constant folding](https://en.wikipedia.org/wiki/Constant_folding) is also performed.
+
+The variable label must be written in SNAKE_CASE to be eligible.
+
+## Limitations
+
+- Only applies to local variables that are declared in a single statement on their own line: multi-line declarations and variables that are declared and written in separate statements are not eligible
+- Only operates on one file at a time: cannot copy variables between separate files
 - Only applies to values that are string literals or numeric literals
 - Only intended for use with actual constants (values that do not change at runtime)
-  - Local variable label must be written in SNAKE_CASE
 
-As of v2.0.0, [constant folding](https://en.wikipedia.org/wiki/Constant_folding) is also attempted.
-
-Redundancy warning: Your target Lua runtime may already perform constant propagation.
+Redundancy warning: Your target Lua runtime may already perform constant propagation and constant folding.
 
 ## Example
 
