@@ -33,9 +33,9 @@ Requires TSTL >= 1.22.0
 1. Install this plugin
 
 ```bash
-yarn add git+https://git@github.com/thinknathan/tstl-const-propagation.git#^1.0.0 -D
+yarn add git+https://git@github.com/thinknathan/tstl-const-propagation.git#^2.0.0 -D
 # or
-npm install git+https://git@github.com/thinknathan/tstl-const-propagation.git#^1.0.0 --save-dev
+npm install git+https://git@github.com/thinknathan/tstl-const-propagation.git#^2.0.0 --save-dev
 ```
 
 2. Add `tstl-const-propagation` to `tstl.luaPlugins` in `tsconfig.json`
