@@ -5,9 +5,13 @@ import * as tstl from 'typescript-to-lua';
 const pattern = /local\s([A-Z_0-9]+)\s=\s(.+)/g;
 // Variable to capture matches
 let match: RegExpExecArray | null;
-// Running only once doesn't find all values, so we re-run the function this many times
+// Running only once doesn't find all values
+// so we re-run the function this many times per file
 const maxLoop = 100;
 
+/**
+ * Replaces local declarations with simple literals in the emitted Lua code
+ */
 function constProp(file: tstl.EmitFile) {
 	while ((match = pattern.exec(file.code)) !== null) {
 		const statement = match[0];
@@ -15,7 +19,11 @@ function constProp(file: tstl.EmitFile) {
 		const value = match[2].trim();
 		// Find only values that are simple literals (numbers and strings)
 		if (
-			(value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') ||
+			// Check for string literals (has exactly two quote marks)
+			(value.split('"').length - 1 === 2 &&
+				value.charAt(0) === '"' &&
+				value.charAt(value.length - 1) === '"') ||
+			// Check for numbers
 			!isNaN(value as unknown as number)
 		) {
 			// Replace local declaration with an empty line
@@ -27,6 +35,9 @@ function constProp(file: tstl.EmitFile) {
 	}
 }
 
+/**
+ * Evaluates arithmetic expressions and returns the result
+ */
 function evaluateExpression(expression: string): number | null {
 	const operators = /[+\-*/%^]/;
 	const parts = expression.split(operators);
@@ -88,6 +99,9 @@ function evaluateExpression(expression: string): number | null {
 	return result;
 }
 
+/**
+ * Unrolls constant expressions in the emitted Lua code
+ */
 function constUnroll(file: tstl.EmitFile) {
 	// Define a regular expression to match lines with assignments
 	const assignmentRegex = /\s*=\s*([^\n]+)\s*/g;
@@ -130,6 +144,9 @@ function constUnroll(file: tstl.EmitFile) {
 	}
 }
 
+/**
+ * Plugin definition for TypeScript-to-Lua
+ */
 const plugin: tstl.Plugin = {
 	afterEmit: (
 		_program: ts.Program,
@@ -149,4 +166,5 @@ const plugin: tstl.Plugin = {
 	},
 };
 
+// Export the plugin for use in TypeScript-to-Lua
 export default plugin;

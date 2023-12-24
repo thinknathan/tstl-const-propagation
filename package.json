@@ -1,6 +1,6 @@
 {
 	"name": "tstl-const-propagation",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "TypeScriptToLua plugin that performs constant propagation for string literals or numeric literals",
 	"repository": {
 		"type": "git",
@@ -11,7 +11,8 @@
 	"main": "dist/tstl-const-prop.cjs",
 	"type": "commonjs",
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc && npm run renameCjs && npm run prettier",
+		"renameCjs": "node -e \"require('fs').renameSync('dist/tstl-const-prop.js', 'dist/tstl-const-prop.cjs')\"",
 		"prettier": "prettier --write ./"
 	},
 	"devDependencies": {
