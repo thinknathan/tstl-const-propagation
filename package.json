@@ -11,13 +11,13 @@
 	"main": "dist/tstl-const-prop.cjs",
 	"type": "commonjs",
 	"scripts": {
+		"ci": "tsc --noEmit",
 		"build": "tsc && npm run renameCjs && npm run prettier",
 		"renameCjs": "node -e \"require('fs').renameSync('dist/tstl-const-prop.js', 'dist/tstl-const-prop.cjs')\"",
 		"prettier": "prettier --write ./"
 	},
 	"devDependencies": {
 		"prettier": "^3.1.0",
-		"tsc": "^2.0.4",
 		"typescript": "~5.3.3",
 		"typescript-to-lua": "~1.23.0"
 	},
