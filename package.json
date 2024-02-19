@@ -1,7 +1,7 @@
 {
 	"name": "tstl-const-propagation",
 	"version": "2.0.2",
-	"description": "TypeScriptToLua plugin that performs constant propagation for string literals or numeric literals",
+	"description": "TypeScriptToLua plugin that performs constant propagation and constant folding for string literals and numeric literals",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thinknathan/tstl-const-propagation.git"
