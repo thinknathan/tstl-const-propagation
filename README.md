@@ -17,6 +17,8 @@ The variable label must be written in SNAKE_CASE to be eligible.
 
 Redundancy warning: Your target Lua runtime may already perform constant propagation and constant folding.
 
+:exclamation: Use this and any code transformation plugin with caution. Mistakes are possible.
+
 ## Example
 
 ```ts
