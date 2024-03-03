@@ -1,6 +1,6 @@
 # tstl-const-propagation
 
-[![CI](https://github.com/thinknathan/tstl-const-propagation/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/tstl-const-propagation/actions/workflows/ci.yml)
+[![CI](https://github.com/thinknathan/tstl-const-propagation/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/tstl-const-propagation/actions/workflows/ci.yml) ![GitHub License](https://img.shields.io/github/license/thinknathan/tstl-const-propagation)
 
 TypeScriptToLua plugin that performs [constant propagation](https://en.wikipedia.org/wiki/Constant_folding#Constant_propagation).
 
